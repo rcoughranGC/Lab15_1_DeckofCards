@@ -1,0 +1,15 @@
+﻿@model Deck
+@{
+    ViewData["Title"] = "GetCards";
+}
+
+<h1>Deck Created</h1><br />
+
+Deck ID: @Model.deck_id <br />
+Total Cards: @Model.remaining
+
+<form method="post" action="/home/draw?deckId=@Model.deck_id&drawCount=5">
+    <input type="submit" value="Draw 5" />
+
+</form>
+

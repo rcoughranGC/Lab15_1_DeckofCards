@@ -1,0 +1,28 @@
+﻿@model Deck
+@{
+    ViewData["Title"] = "Draw";
+}
+<style type="text/css">
+    span {
+        display: inline-block;
+        width: 150px;
+    }
+</style>
+
+<h1>Draw</h1>
+<h3>Remaining Cards: @Model.remaining</h3>
+<form method="post" action="/home/draw?deckId=@Model.deck_id&drawCount=5">
+    <input type="submit" value="Draw 5 More" />
+</form>
+
+@foreach (Card card in @Model.cards)
+{
+    <img src="@card.image" width="150" />
+}
+<br />
+@foreach (Card card in Model.cards)
+{   
+    <span style="text-align: center">
+        @card.value<br />of<br /> @card.suit
+    </span>
+}
